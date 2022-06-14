@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Carousel.css";
 
-export const CarouselItem = ({ children, width }) => {
+export const CarouselItem = ({ children }) => {
   return (
-    <div className="carousel-item" style={{ width: width }}>
+    <div className="carousel-item">
       {children}
     </div>
   );
@@ -48,7 +48,7 @@ const Carousel = ({ children }) => {
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "100%" });
+          return React.cloneElement(child);
         })}
       </div>
       <div className="carousel-indicators">
