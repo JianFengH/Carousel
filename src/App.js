@@ -1,4 +1,5 @@
 import Carousel, { CarouselItem } from './components/Carousel/Carousel';
+import LikeButton from './components/LikeButton/LikeButton';
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
         <CarouselItem>Item 3</CarouselItem>
         <CarouselItem>Item 4</CarouselItem>
       </Carousel>
+
+      <LikeButton />
     </div>
   );
 }
