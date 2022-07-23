@@ -11,15 +11,13 @@ export default class LikeButton extends Component {
   }
 
   render() {
-    const btnClass = cx({
-      'like-button': true,
-      'liked': this.state.liked,
-    });
-    
     return (
       <>
         <button
-          className={btnClass}
+          className={cx({
+            'like-button': true,
+            'liked': this.state.liked,
+          })}
           onClick={() => {
             this.setState({
               liked: !this.state.liked,
