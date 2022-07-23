@@ -1,4 +1,4 @@
-import Carousel, { CarouselItem } from './components/Carousel';
+import Carousel, { CarouselItem } from './components/Carousel/Carousel';
 
 function App() {
   return (
