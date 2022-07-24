@@ -19,29 +19,42 @@ export default class Autocomplete extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this._mounted = true;
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
+    clearTimeout(this.timer);
+  }
+
   fetchItems(query) {
     if (!query) {
       return;
     }
+
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.setState({ loading: true });
       axios.get(ITEMS_API_URL, { params: { q: query } })
         .then(response => {
-          this.setState({
-            items: response.data,
-            loading: false,
-          });
+          if (this._mounted) {
+            this.setState({
+              items: response.data,
+              loading: false,
+            });
+          }
         })
         .catch(error => {
-          console.log(error);
-          this.setState({ loading: false });
+          if (this._mounted) {
+            console.log(error);
+            this.setState({
+              items: [],
+              loading: false,
+            });
+          }
         });
     }, DEBOUNCE_DELAY);
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timer);
   }
 
   render() {
