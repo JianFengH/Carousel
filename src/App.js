@@ -1,5 +1,8 @@
 import Carousel, { CarouselItem } from './components/Carousel/Carousel';
 import LikeButton from './components/LikeButton/LikeButton';
+import Counter from './components/Counter/Counter';
+import TodoList from './components/TodoList/TodoList';
+import Autocomplete from './components/Autocomplete/Autocomplete';
 
 function App() {
   return (
@@ -12,6 +15,12 @@ function App() {
       </Carousel>
 
       <LikeButton />
+
+      <Counter />
+
+      <TodoList />
+
+      <Autocomplete />
     </div>
   );
 }
