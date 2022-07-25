@@ -1,7 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-// you should import `lodash` as a whole module
-import lodash from 'lodash';
 import axios from 'axios';
 
 const ITEMS_API_URL = 'https://example.com/api/items';

@@ -1,4 +1,3 @@
-import cx from 'classnames';
 import { Component } from 'react';
 
 export default class Counter extends Component {

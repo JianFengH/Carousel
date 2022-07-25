@@ -3,6 +3,8 @@ import LikeButton from './components/LikeButton/LikeButton';
 import Counter from './components/Counter/Counter';
 import TodoList from './components/TodoList/TodoList';
 import Autocomplete from './components/Autocomplete/Autocomplete';
+import Counter2 from './components/Counter/Counter2';
+import TodoList2 from './components/TodoList/TodoList2';
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
       <TodoList />
 
       <Autocomplete />
+
+      <hr />
+      <Counter2 />
+      <TodoList2 />
     </div>
   );
 }
