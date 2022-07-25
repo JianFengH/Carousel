@@ -5,6 +5,7 @@ import TodoList from './components/TodoList/TodoList';
 import Autocomplete from './components/Autocomplete/Autocomplete';
 import Counter2 from './components/Counter/Counter2';
 import TodoList2 from './components/TodoList/TodoList2';
+import Autocomplete2 from './components/Autocomplete/Autocomplete2';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       <hr />
       <Counter2 />
       <TodoList2 />
+      
+      <h2>Autocomplete function component</h2>
+      <Autocomplete2 focus onSelectItem={(v) => alert(v)} />
     </div>
   );
 }

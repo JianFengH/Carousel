@@ -71,9 +71,9 @@ export default class Autocomplete extends React.Component {
 
           {!this.state.loading && <div className="list is-hoverable">
             {this.state.items.map((item, index) => (
-              <a className="list-item" key={index} onClick={() => {
+              <div className="list-item" key={index} onClick={() => {
                 this.props.onSelectItem && this.props.onSelectItem(item);
-              }}>{item}</a>
+              }}>{item}</div>
             ))}
           </div>}
         </div>
@@ -84,6 +84,7 @@ export default class Autocomplete extends React.Component {
             padding: 0.5rem 1rem;
             text-decoration: none;
             cursor: pointer;
+            color: blue;
           }
       `}</style>
       </>
