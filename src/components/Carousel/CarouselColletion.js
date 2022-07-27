@@ -54,9 +54,9 @@ export default function CarouselColletion({ children, defaultActiveIndex }) {
       </div>
 
       <div className="cc-control">
-      <button onClick={() => {
+        <button onClick={() => {
           let newActiveIndex = activeIndex - 1;
-          if(newActiveIndex < 0) {
+          if (newActiveIndex < 0) {
             newActiveIndex = childrenLength - 1;
           }
           setActiveIndex(newActiveIndex);
