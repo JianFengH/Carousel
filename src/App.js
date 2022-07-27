@@ -7,8 +7,12 @@ import Counter2 from './components/Counter/Counter2';
 import TodoList2 from './components/TodoList/TodoList2';
 import Autocomplete2 from './components/Autocomplete/Autocomplete2';
 import CarouselColletion, { CarouselColletionItem } from './components/Carousel/CarouselColletion';
+import Modal from './components/Modal/Modal';
+import { useState } from 'react';
 
 function App() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div className="App">
       <Carousel>
@@ -35,12 +39,18 @@ function App() {
 
       <h2>CarouselColletion</h2>
       <CarouselColletion>
-        <CarouselColletionItem style={{background: 'red'}}>1</CarouselColletionItem>
-        <CarouselColletionItem style={{background: 'blue'}}>2</CarouselColletionItem>
-        <CarouselColletionItem style={{background: 'green'}}>3</CarouselColletionItem>
-        <CarouselColletionItem style={{background: 'purple'}}>4</CarouselColletionItem>
-        <CarouselColletionItem style={{background: 'gray'}}>5</CarouselColletionItem>
+        <CarouselColletionItem style={{ background: 'red' }}>1</CarouselColletionItem>
+        <CarouselColletionItem style={{ background: 'blue' }}>2</CarouselColletionItem>
+        <CarouselColletionItem style={{ background: 'green' }}>3</CarouselColletionItem>
+        <CarouselColletionItem style={{ background: 'purple' }}>4</CarouselColletionItem>
+        <CarouselColletionItem style={{ background: 'gray' }}>5</CarouselColletionItem>
       </CarouselColletion>
+
+      <h2>modal component</h2>
+      <button onClick={() => setVisible(true)}>open modal</button>
+      <Modal visible={visible} onClose={() => setVisible(false)}>
+        <div>modal content</div>
+      </Modal>
     </div>
   );
 }
