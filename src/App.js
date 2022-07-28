@@ -9,6 +9,15 @@ import Autocomplete2 from './components/Autocomplete/Autocomplete2';
 import CarouselColletion, { CarouselColletionItem } from './components/Carousel/CarouselColletion';
 import Modal from './components/Modal/Modal';
 import { useState } from 'react';
+import FullPage, { FullPageItem } from './components/FullPage/FullPage';
+
+function AppFull() {
+  return <FullPage>
+    <FullPageItem style={{background: 'green'}}>1</FullPageItem>
+    <FullPageItem style={{background: 'blue'}}>2</FullPageItem>
+    <FullPageItem style={{background: 'red'}}>3</FullPageItem>
+  </FullPage>
+}
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -55,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppFull;

@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.full-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.full-body {
+  transition: transform 1s;
+}
+.full-item {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
