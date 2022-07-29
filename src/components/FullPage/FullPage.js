@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import './FullPage.css';
 
 const THRESHOLD = 10;
+const THROTTLE_TIME = 300;
 
 export function FullPageItem({ children, style }) {
   return <div className="full-item" style={style}>
@@ -29,9 +30,8 @@ export default function FullPage({ children, defaultActiveIndex }) {
   useEffect(() => {
     let timer = null;
 
-    function onwheel(e) {
-      // console.log('onwheel:', e);
-      e.preventDefault();
+    function onWheel(e) {
+      // console.log('onWheel:', e);
       const { deltaX, deltaY } = e;
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > THRESHOLD) {
         console.log('deltaY:', deltaY);
@@ -40,22 +40,22 @@ export default function FullPage({ children, defaultActiveIndex }) {
             clearTimeout(timer);
             timer = setTimeout(() => {
               setActiveIndex(activeIndex + 1);
-            }, 500);
+            }, THROTTLE_TIME);
           }
         } else if (deltaY < 0) {
           if (activeIndex > 0) {
             clearTimeout(timer);
             timer = setTimeout(() => {
               setActiveIndex(activeIndex - 1);
-            }, 500);
+            }, THROTTLE_TIME);
           }
         }
       }
     }
-    window.addEventListener('wheel', onwheel, { passive: false });
+    window.addEventListener('wheel', onWheel);
 
     return () => {
-      window.removeEventListener('wheel', onwheel);
+      window.removeEventListener('wheel', onWheel);
       clearTimeout(timer);
     }
   }, [activeIndex, childrenCount]);
