@@ -10,12 +10,14 @@ import CarouselColletion, { CarouselColletionItem } from './components/Carousel/
 import Modal from './components/Modal/Modal';
 import { useState } from 'react';
 import FullPage, { FullPageItem } from './components/FullPage/FullPage';
+import { ThemeContext, themes } from './components/ThemeContext/ThemeContext';
+import ThemeButton from './components/ThemeButton/ThemeButton';
 
 function AppFull() {
   return <FullPage>
-    <FullPageItem style={{background: 'green'}}>1</FullPageItem>
-    <FullPageItem style={{background: 'blue'}}>2</FullPageItem>
-    <FullPageItem style={{background: 'red'}}>3</FullPageItem>
+    <FullPageItem style={{ background: 'green' }}>1</FullPageItem>
+    <FullPageItem style={{ background: 'blue' }}>2</FullPageItem>
+    <FullPageItem style={{ background: 'red' }}>3</FullPageItem>
   </FullPage>
 }
 
@@ -65,9 +67,17 @@ function App() {
 }
 
 function App2() {
-  return <div>
-    hello world
-  </div>
+  const [theme, setTheme] = useState(themes.dark);
+
+  return <ThemeContext.Provider value={theme}>
+    <ThemeButton onClick={() => setTheme((prevTheme) => {
+      if (prevTheme === themes.dark) {
+        return themes.light;
+      } else {
+        return themes.dark;
+      }
+    })}>Change Theme</ThemeButton>
+  </ThemeContext.Provider>
 }
 
-export default AppFull;
+export default App2;
